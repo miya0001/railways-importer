@@ -14,6 +14,11 @@ class Cli extends WP_CLI_Command
 	/**
 	 * 路線、駅データを指定したタクソノミーにインポートする
 	 *
+	 * ## OPTIONS
+ 	 *
+ 	 * <taxonomy>
+ 	 * : インポート先のタクソノミーの名前
+	 *
 	 * ## EXAMPLES
 	 *
 	 *     wp railways import <taxonomy>
