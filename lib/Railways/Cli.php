@@ -84,16 +84,21 @@ class Cli extends WP_CLI_Command
 
 			// imports station
 			WP_CLI::line( $lines[ $station['line_cd'] ] . '/' . $station['station_name'] );
-			$station_result = wp_insert_term( $station['station_name'], $taxonomy, $args = array(
-				'slug' => Util::create_station_slug( $station['station_cd'] ),
-				'parent' => $parent,
-			) );
 
-			if ( is_wp_error( $station_result ) ) {
-				WP_CLI::warning( 'NG' );
+			if ( term_exists( $station['station_name'], $taxonomy, $parent ) ) {
+				WP_CLI::success( 'Already exists' );
 			} else {
-				wp_update_term( $station_result['term_id'], $taxonomy, array( 'term_group' => $station['station_g_cd'] ) );
-				WP_CLI::success( 'OK' );
+				$station_result = wp_insert_term( $station['station_name'], $taxonomy, $args = array(
+					'slug' => Util::create_station_slug( $station['station_cd'] ),
+					'parent' => $parent,
+				) );
+
+				if ( is_wp_error( $station_result ) ) {
+					WP_CLI::warning( 'NG' );
+				} else {
+					wp_update_term( $station_result['term_id'], $taxonomy, array( 'term_group' => $station['station_g_cd'] ) );
+					WP_CLI::success( 'OK' );
+				}
 			}
 
 			// 以下の2行を実行しないとterm_exists()でないと言われてしまう
