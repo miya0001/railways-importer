@@ -1,0 +1,15 @@
+{
+    "name": "miyauchi/railways-importer",
+    "authors": [
+        {
+            "name": "miya0001",
+            "email": "miya@wpist.me"
+        }
+    ],
+    "require": {
+        "league/csv": "*"
+    },
+    "autoload": {
+        "psr-0": {"Railways": "lib"}
+    }
+}
