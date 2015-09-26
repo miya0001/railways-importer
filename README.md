@@ -1,8 +1,8 @@
-# wp railways import <taxonomy>
+# railways-imporer
 
 [![Build Status](https://travis-ci.org/miya0001/railways-importer.svg)](https://travis-ci.org/miya0001/railways-importer)
 
-路線、駅データを指定したカスタムタクソノミーにタームとして登録するWP-CLI用コマンド。
+路線、駅データを指定したカスタムタクソノミーにタームとして登録するWP-CLI用コマンドを有効化するためのWordPressプラグイン。
 
 ![](https://www.evernote.com/l/ABVKkb-IMb5N47aEDIUqAWFhTcv_ee26qaEB/image.png)
 
